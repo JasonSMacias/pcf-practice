@@ -5,5 +5,9 @@ image_resource:
   type: docker-image
   source: {repository: dwdraju/alpine-curl-jq}
 
+inputs:
+
+
 run:
-  path: pwd
+  path: find
+  args: ["/", "horoscope.sh"]
