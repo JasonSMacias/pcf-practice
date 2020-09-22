@@ -6,5 +6,4 @@ image_resource:
   source: {repository: dwdraju/alpine-curl-jq}
 
 run:
-  path: ls 
-  args: ["-R", "/"]
+  path: pwd
