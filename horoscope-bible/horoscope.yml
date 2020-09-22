@@ -5,12 +5,8 @@ image_resource:
   type: docker-image
   source: {repository: dwdraju/alpine-curl-jq}
 
-resources:
+inputs:
   - name: horoscope-repo
-    type: git
-    source:
-      uri: https://github.com/JasonSMacias/pcf-practice.git
-      branch: master
 
 run:
   path: horoscope-repo/horoscope-bible/horoscope.sh

@@ -12,4 +12,3 @@ jobs:
       - get: horoscope-repo
       - task: horoscope
         file: horoscope-repo/horoscope-bible/horoscope.yml
-                       
