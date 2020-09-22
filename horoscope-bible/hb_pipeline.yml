@@ -10,6 +10,6 @@ jobs:
     public: true
     plan:
       - get: horoscope-repo
-      - task: get-horoscope
-        file: pcf-practice/horoscope-bible/horoscope.yml
+      - task: horoscope
+        file: horoscope-repo/horoscope-bible/horoscope.yml
                        
