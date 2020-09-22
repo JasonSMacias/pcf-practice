@@ -7,5 +7,7 @@ image_resource:
    source: {repository: dwdraju/alpine-curl-jq}
 
 run:
-  path: ./horoscope.sh 
-  args: [leo]
+  # path: ./horoscope.sh 
+  path: ls
+  # args: [leo]
+  args: [-laR]
