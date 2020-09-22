@@ -3,11 +3,8 @@ platform: linux
 
 image_resource:
   type: docker-image
-  # source: {repository: ubuntu}
-   source: {repository: dwdraju/alpine-curl-jq}
+  source: {repository: dwdraju/alpine-curl-jq}
 
 run:
-  # path: ./horoscope.sh 
-  path: ls
-  # args: [leo]
-  args: [-laR]
+  path: ./horoscope.sh 
+  args: [leo]

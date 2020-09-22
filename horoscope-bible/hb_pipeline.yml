@@ -3,7 +3,7 @@ resources:
   - name: horoscope-repo
     type: git
     source:
-      url: https://github.com/JasonSMacias/pcf-practice.git
+      uri: https://github.com/JasonSMacias/pcf-practice.git
       branch: master
 jobs:
   - name: job-horoscope-bible
