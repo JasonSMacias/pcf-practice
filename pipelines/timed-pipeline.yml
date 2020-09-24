@@ -5,13 +5,21 @@ resources:
     source:
       uri: https://github.com/JasonSMacias/pcf-practice.git
       branch: master
-
-
+  - name: weekly-timer
+    type: time
+    source:
+      days:
+        - Thursday
+          Sunday
+      start: 6:00 PM
+      stop: 7:00 PM
 
 jobs:
   - name: job-timed
     public: true
     plan:
       - get: repo
+      - get: weekly-timer
+        trigger: true
       - task: print-time
         file: repo/timed/timed.yml
