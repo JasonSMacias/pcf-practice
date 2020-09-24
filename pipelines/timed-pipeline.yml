@@ -9,8 +9,8 @@ resources:
     type: time
     source:
       days: [Thursday]
-      start: 6:15 PM
-      stop: 7:15 PM
+      start: 10:18 PM
+      stop: 11:18 PM
       location: America/New_York
 
 jobs:
