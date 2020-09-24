@@ -20,6 +20,7 @@ jobs:
   - name: job-timed
     public: true
     plan:
+      - get: weekly-timer
       - get: repo
       - task: print-time
         file: repo/timed/timed.yml
