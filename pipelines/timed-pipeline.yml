@@ -21,7 +21,5 @@ jobs:
     public: true
     plan:
       - get: repo
-      - get: weekly-timer
-        trigger: true
       - task: print-time
         file: repo/timed/timed.yml
