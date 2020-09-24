@@ -10,5 +10,6 @@ jobs:
     public: true
     plan:
       - get: horoscope-repo
+        trigger: true
       - task: horoscope
         file: horoscope-repo/horoscope-bible/horoscope.yml
