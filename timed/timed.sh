@@ -8,4 +8,4 @@
 # Usage: no arguments
 #############################################
 
-echo "Hello, I ran on $(date +%A) $(date +%B) $(date +%d), $(date +%y), at $(date +%r)."
+echo "Hello, I ran on $(date +%A) $(date +%B) $(date +%d), $(date +%y), at $(TZ=America/New_York date +%r)."

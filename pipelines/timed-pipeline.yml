@@ -8,11 +8,9 @@ resources:
   - name: weekly-timer
     type: time
     source:
-      days:
-        - Thursday
-          Sunday
-      start: 6:05 PM
-      stop: 7:05 PM
+      days: [Thursday]
+      start: 6:15 PM
+      stop: 7:15 PM
       location: America/New_York
 
 jobs:
