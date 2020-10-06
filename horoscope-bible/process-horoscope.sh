@@ -16,6 +16,6 @@ if [[ ! -d horoscope-files ]]; then
 fi
 
 echo "file passed from previous task (horoscope), and it's contents"
-ls -l horoscope-files
+ls -l horoscope-json
 echo "contains"
-cat horoscope-files/*.json
+cat horoscope-json/*.json
