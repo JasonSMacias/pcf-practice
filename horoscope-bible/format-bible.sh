@@ -18,20 +18,12 @@ for word in ${HOROSCOPE_WORDS_ARRAY[@]}
 do
     echo $word
 done
-if ! command wget &> /dev/null; then
-    echo "wget not found trying to install"
-    cd horoscope-repo/wget
-    tar -xvz -f wget2-1.99.2.tar.gz 
-    cd wget2-1.99.2
-    ./configure && make && make install
-    cd ../..
-fi
 
-wget http://www.gutenberg.org/cache/epub/10/pg10.txt
-echo "after getting text"
-ls -l
+# wget http://www.gutenberg.org/cache/epub/10/pg10.txt
+# echo "after getting text"
+# ls -l
 
-echo "File:"
+# echo "File:"
 
 echo "version of Java running:"
 java --version
