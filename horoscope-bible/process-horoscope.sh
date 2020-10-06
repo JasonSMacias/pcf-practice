@@ -12,8 +12,8 @@ echo "start process horoscope"
 set -euf -o pipefail
 
 if [[ ! -d horoscope-files ]]; then
-    mkdir horoscope-files || echo "directory make fail"
-    exit 1
+    echo "making output directory"
+    mkdir horoscope-files || echo "directory make fail" || exit 1
 fi
 
 echo "file passed from previous task (horoscope)"
