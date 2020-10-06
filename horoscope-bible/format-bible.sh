@@ -18,7 +18,15 @@ for word in ${HOROSCOPE_WORDS_ARRAY[@]}
 do
     echo $word
 done
-apt install wget
+if ! command wget &> /dev/null
+do
+    echo "wget not found trying to install"
+    cd horoscope-repo/wget
+    tar -xvz wget2-1.99.2.tar.gz 
+    ./configure && make && make install
+    cd ../..
+done
+
 wget http://www.gutenberg.org/cache/epub/10/pg10.txt
 echo "after getting text"
 ls -l
@@ -28,6 +36,6 @@ echo "File:"
 echo "version of Java running:"
 java --version
 
-cd horoscope-repo/horoscope-bible/java
+cd /horoscope-repo/horoscope-bible/java
 javac SayHello
 java SayHello
