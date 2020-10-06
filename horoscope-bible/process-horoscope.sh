@@ -18,5 +18,4 @@ fi
 echo "file passed from previous task (horoscope), and it's contents"
 ls -l horoscope-files
 echo "contains"
-cat $(ls horoscope-files) | jq .
-
+cat horoscope-files/*.json
