@@ -21,4 +21,12 @@ echo "contains:"
 cd horoscope-json
 cat $(ls) | jq .
 echo "description"
-cat $(ls) | jq .description
+DESCRIPTION=$(cat $(ls) | jq .description)
+desc_words="${DESCRIPTION//.}"
+echo $desc_words
+desc_arr=($desc_words)
+echo "word array items"
+for i in "${desc_arr[@]}"
+do
+    echo $i
+done
