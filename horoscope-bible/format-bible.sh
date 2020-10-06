@@ -18,7 +18,7 @@ for word in ${HOROSCOPE_WORDS_ARRAY[@]}
 do
     echo $word
 done
-if [[ ! command wget &> /dev/null ]]; then
+if ! command wget &> /dev/null; then
     echo "wget not found trying to install"
     cd horoscope-repo/wget
     tar -xvz wget2-1.99.2.tar.gz 
