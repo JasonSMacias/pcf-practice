@@ -24,7 +24,7 @@ cd horoscope-json
 cat $(ls) | jq .
 echo "description"
 DESCRIPTION=$(cat $(ls) | jq .description)
-END_MIN_2=$(( #DESCRIPTION - 2))
+END_MIN_2=$(( #DESCRIPTION - 2 ))
 DESCRIPTION=${DESCRIPTION:1:END_MIN_2}
 desc_words="${DESCRIPTION//.}"
 echo $desc_words
