@@ -37,9 +37,8 @@ do
     fi
 done
 printf "\nLonger Words Array:"
-echo $longer_than_5_arr
-cd ..
-cd horoscope-files
-echo $longer_than_5_arr > longer_than_5.txt
+echo ${longer_than_5_arr[@]}
+cd ../horoscope-files
+echo "(${longer_than_5_arr[@]})" > longer_than_5.txt
 echo "file to output:"
 cat longer_than_5.txt
