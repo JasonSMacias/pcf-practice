@@ -7,3 +7,5 @@ curl -X POST \
 ls -l
 
 cat result$(date +%d-%m-%y).json | jq .
+mkdir horoscope-json && mv result$(date +%d-%m-%y).json ./horoscope-json
+ls -l horoscope-json
