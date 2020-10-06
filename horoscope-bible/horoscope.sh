@@ -11,4 +11,4 @@ cat result$(date +%d-%m-%y).json | jq .
 if [[ ! -d horoscope-json ]]; then
     mkdir horoscope-json && mv result$(date +%d-%m-%y).json ./horoscope-json || echo "mkdir or move fail"
 fi
-ehco "horoscope.sh completed"
+echo "horoscope.sh completed"
