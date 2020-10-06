@@ -29,5 +29,5 @@ echo "version of Java running:"
 java --version
 
 cd horoscope-repo/horoscope-bible/java
-javac SayHello
+javac SayHello.java
 java SayHello
