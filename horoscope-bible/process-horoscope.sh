@@ -16,6 +16,7 @@ if [[ ! -d horoscope-files ]]; then
 fi
 
 echo "file passed from previous task (horoscope), and it's contents"
-ls -l horoscope
+ls -l horoscope-files
 echo "contains"
-cat $(ls horoscope) | jq .
+cat $(ls horoscope-files) | jq .
+
