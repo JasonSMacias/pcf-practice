@@ -4,16 +4,17 @@
 # Author: Jason Macias
 # Version: v1.0.0
 # Date: 10/6/20
-# Description: 
+# Description: Take input json and get words from description at least 5 characters long, pass on in task output folder
 # Usage: concourse with horoscope in json format
 #############################################
+
 echo "start process horoscope"
 # for safe scripts
 set -euf -o pipefail
 
-if [[ ! -d horoscope-files ]]; then
+if [[ ! -d horoscope-words ]]; then
     echo "making output directory"
-    mkdir horoscope-files || echo "directory make fail" || exit 1
+    mkdir horoscope-words || echo "directory make fail"; exit 1
 fi
 
 echo "file passed from previous task (horoscope)"
@@ -23,6 +24,7 @@ cd horoscope-json
 cat $(ls) | jq .
 echo "description"
 DESCRIPTION=$(cat $(ls) | jq .description)
+DESCRIPTION=${DESCRIPTION:1:$(( #DESCRIPTION - 1 ))}
 desc_words="${DESCRIPTION//.}"
 echo $desc_words
 desc_arr=($desc_words)
@@ -38,7 +40,7 @@ do
 done
 printf "\nLonger Words Array:"
 echo ${longer_than_5_arr[@]}
-cd ../horoscope-files
+cd ../horoscope-words
 echo "(${longer_than_5_arr[@]})" > longer_than_5.txt
 echo "file to output:"
 cat longer_than_5.txt

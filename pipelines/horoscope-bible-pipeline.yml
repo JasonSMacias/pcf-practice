@@ -15,3 +15,5 @@ jobs:
         file: horoscope-repo/horoscope-bible/horoscope.yml
       - task: process-horoscope
         file: horoscope-repo/horoscope-bible/process-horoscope.yml
+      - task: format-bible
+        file: horoscope-repo/horoscope-bible/format-bible.yml

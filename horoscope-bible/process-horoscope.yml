@@ -8,5 +8,8 @@ inputs:
   - name: horoscope-repo
   - name: horoscope-json
 
+outputs:
+  - name: horoscope-words
+
 run:
   path: horoscope-repo/horoscope-bible/process-horoscope.sh
