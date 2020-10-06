@@ -5,8 +5,8 @@ image_resource:
   source: {repository: dwdraju/alpine-curl-jq}
 
 inputs:
+  - name: horoscope-repo
   - name: horoscope-json
-
 
 run:
   path: horoscope-repo/horoscope-bible/process-horoscope.sh

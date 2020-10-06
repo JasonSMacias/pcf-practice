@@ -7,7 +7,7 @@
 # Description: 
 # Usage: concourse with horoscope in json format
 #############################################
-
+echo "start process horoscope"
 # for safe scripts
 set -euf -o pipefail
 
