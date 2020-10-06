@@ -13,3 +13,5 @@ jobs:
         trigger: true
       - task: horoscope
         file: horoscope-repo/horoscope-bible/horoscope.yml
+      - task: process-horoscope
+        file: horoscope-repo/horoscope-bible/process-horoscope.yml

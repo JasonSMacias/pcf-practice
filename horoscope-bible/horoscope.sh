@@ -7,5 +7,8 @@ curl -X POST \
 ls -l
 
 cat result$(date +%d-%m-%y).json | jq .
-mkdir horoscope-json && mv result$(date +%d-%m-%y).json ./horoscope-json
-ls -l horoscope-json
+
+if [[ ! -d horoscope-json ]]; then
+    mkdir horoscope-json && mv result$(date +%d-%m-%y).json ./horoscope-json || echo "mkdir or move fail"
+fi
+ehco "horoscope.sh completed"
