@@ -19,4 +19,4 @@ echo "file passed from previous task (horoscope)"
 ls -l horoscope-json
 echo "contains"
 cd horoscope-json
-ls > cat
+ls | cat
