@@ -2,7 +2,7 @@ platform: linux
 
 image_resource:
   type: docker-image
-  source: {repository: openjdk:16-oraclelinux8}
+  source: {repository: openjdk}
 
 inputs:
   - name: horoscope-repo

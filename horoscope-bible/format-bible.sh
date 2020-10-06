@@ -18,7 +18,7 @@ for word in ${HOROSCOPE_WORDS_ARRAY[@]}
 do
     echo $word
 done
-
+apt install wget
 wget http://www.gutenberg.org/cache/epub/10/pg10.txt
 echo "after getting text"
 ls -l
