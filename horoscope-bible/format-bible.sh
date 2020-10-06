@@ -22,6 +22,7 @@ if ! command wget &> /dev/null; then
     echo "wget not found trying to install"
     cd horoscope-repo/wget
     tar -xvz -f wget2-1.99.2.tar.gz 
+    cd wget2-1.99.2
     ./configure && make && make install
     cd ../..
 fi
