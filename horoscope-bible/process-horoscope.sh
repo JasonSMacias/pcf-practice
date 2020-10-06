@@ -15,7 +15,8 @@ if [[ ! -d horoscope-files ]]; then
     mkdir horoscope-files || echo "directory make fail"
 fi
 
-echo "file passed from previous task (horoscope), and it's contents"
+echo "file passed from previous task (horoscope)"
 ls -l horoscope-json
 echo "contains"
-cat horoscope-json/*.json
+cd horoscope-json
+ls > cat
