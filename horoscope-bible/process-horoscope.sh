@@ -13,6 +13,7 @@ set -euf -o pipefail
 
 if [[ ! -d horoscope-files ]]; then
     mkdir horoscope-files || echo "directory make fail"
+    exit 1
 fi
 
 echo "file passed from previous task (horoscope)"
@@ -26,7 +27,19 @@ desc_words="${DESCRIPTION//.}"
 echo $desc_words
 desc_arr=($desc_words)
 echo "word array items"
+longer_than_5_arr=()
+printf "\nLonger Words:"
 for i in "${desc_arr[@]}"
-do
-    echo $i
+do  
+    if [[ ${#i} -ge 5 ]] ; then
+        echo $i
+        longer_than_5_arr+=($i)
+    fi
 done
+printf "\nLonger Words Array:"
+echo $longer_than_5_arr
+cd ..
+cd horoscope-files
+echo $longer_than_5_arr > longer_than_5.txt
+echo "file to output:"
+cat longer_than_5.txt
