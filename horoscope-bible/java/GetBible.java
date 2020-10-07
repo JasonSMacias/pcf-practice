@@ -39,7 +39,7 @@ public class GetBible {
         if (wordToSearch.charAt(wordToSearch.length() - 1) == ')') {
           wordToSearch = wordToSearch.substring(0, wordToSearch.length() - 1);
         }
-        if(stopwordsSet.contains(wordToSearch)) {
+        if(stopwordsSet.contains(wordToSearch.toLowerCase())) {
           System.out.println("Stopword detected, continuing . . .\n");
           System.exit(0);
         }
@@ -73,7 +73,7 @@ public class GetBible {
     try {
       BufferedReader bReader = new BufferedReader(new FileReader(stopwordsFile));
       for (String line = bReader.readLine(); line != null; line = bReader.readLine()) {
-        stopwordsSet.add(line);
+        stopwordsSet.add(line.toLowerCase());
       }
     }catch(IOException e) {
       e.printStackTrace();
