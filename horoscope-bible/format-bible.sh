@@ -19,15 +19,12 @@ do
     echo $word
 done
 
-# wget http://www.gutenberg.org/cache/epub/10/pg10.txt
-# echo "after getting text"
-# ls -l
-
-# echo "File:"
-
 echo "version of Java running:"
 java --version
 
 cd horoscope-repo/horoscope-bible/java
-javac SayHello.java
-java SayHello
+javac GetBible.java
+if [[ ! -f bible.txt]]; then
+    java GetBible
+fi
+head bible.txt
