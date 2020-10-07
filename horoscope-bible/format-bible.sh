@@ -24,7 +24,9 @@ java --version
 
 cd horoscope-repo/horoscope-bible/java
 javac GetBible.java
-java GetBible || echo "Bible not written"; exit 1
+if [[ ! -f bible.txt ]]; then
+    java GetBible || echo "Bible not written"; exit 1
+fi
 head bible.txt
 BIB_LINE_COUNT=$( wc -l bible.txt)
 
