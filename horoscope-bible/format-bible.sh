@@ -31,7 +31,7 @@ fi
 head bible.txt
 BIB_LINE_COUNT=$( wc -l bible.txt)
 
-printf "---------\nBible Verses with words from daily Horoscope description"
+printf "\nBible Verses with words from daily Horoscope description"
 for word in ${HOROSCOPE_WORDS_ARRAY[@]}
 do
   java GetBible --get-verses $BIB_LINE_COUNT word
