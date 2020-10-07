@@ -32,7 +32,13 @@ public class GetBible {
         downloadStopwords();
         setStopwords();
         // args[2] is extra argument 
-        wordToSearch = args[3].substring(1, args[3].length());
+        wordToSearch = args[3];
+        if (wordToSearch.charAt(0) == '(') {
+          wordToSearch = wordToSearch.substring(1);
+        }
+        if (wordToSearch.charAt(wordToSearch.length() - 1) == ')') {
+          wortToSearch = wordToSearch.substring(0, wordToSearch.length() - 1)
+        }
         if(stopwordsSet.contains(wordToSearch)) {
           System.out.println("Stopword detected, continuing . . .\n");
           System.exit(0);
