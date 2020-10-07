@@ -88,7 +88,7 @@ public class GetBible {
     int firstVerse = -1;
     try{
       BufferedReader bReader = new BufferedReader(new FileReader(bible));
-      System.out.println("  --  Find " + wordToSearch + " in file of " + bibleLength + " words.");
+      System.out.println("  --  Find " + wordToSearch + " in file of " + bibleLength + " lines.");
       for (int i = 0; i < bibleLength; i++) {
         int lineNo = i + 1;
         String line = bReader.readLine();
@@ -106,5 +106,8 @@ public class GetBible {
   private static void printRelevantVerses(List<String> lines, List<Integer> hitIndexes){
     // Just printing the lines themselves for now, will later get verses w/ regex
     for (int i : hitIndexes) System.out.println(lines.get(i));
+    if (hitIndexes.size() < 1) {
+      System.out.println("This word is not present in the text");
+    }
   }
 }
