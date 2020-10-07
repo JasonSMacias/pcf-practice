@@ -6,6 +6,8 @@ import java.util.*;
 public class GetBible {
 
   static File bible;
+  static File stopwordsFile;
+  static Set<String> stopwordsSet = new HashSet<String>();
 
   public static void main(String[] args){
       if (args.length == 0){
@@ -27,8 +29,19 @@ public class GetBible {
           System.out.println("first arg after flag must be length of text");
           System.exit(1);
         }
+        try {}catch(IOException e) {
+          System.out.println(e.getMessage());
+          System.out.println("Problem reading stopwords");
+          System.exit(1);
+        }
+        downloadStopwords();
+        setStopwords();
         // args[2] is extra argument 
         wordToSearch = args[3].substring(1, args[3].length() - 1);
+        if(stopwords.contains(wordToSearch)) {
+          System.out.println("Stopword detected, continuing . . .\n");
+          System.exit(0);
+        }
         getVerses(bibleLength, wordToSearch);
       }
       else {
@@ -45,6 +58,31 @@ public class GetBible {
       System.exit(1);
     }	  
   }
+  private static void downloadStopwords() {
+    String STOPWORD_URL = "http://www.gutenberg.org/cache/epub/10/pg10.txt";
+    try(InputStream in = new URL(STOPWORD_URL).openStream()) {
+      Files.copy(in, Paths.get("./stopwords.txt"), StandardCopyOption.REPLACE_EXISTING);
+      stopwordsFile = new File("./stopwords.txt");
+    }catch(IOException e){
+      e.printStackTrace();
+      System.exit(1);
+    }	  
+  }
+  private static void setStopwords() {
+    try {
+      BufferedReader bReader = new BufferedReader(new FileReader(stopwordsFile));
+      for (String line = br.readLine(); line != null; line = br.readLine()) {
+        stopwordsSet.add(line);
+      }
+      bReader.close();
+    }
+      while ()
+    }catch(IOException e) {
+      e.printStackTrace();
+      System.out.println("Problem reading stopwords text file");
+      System.exit(1);
+    }
+  }
 
   private static void getVerses(int bibleLength, String wordToSearch){
     ArrayList<String> lineList = new ArrayList<>();
@@ -57,7 +95,8 @@ public class GetBible {
         int lineNo = i + 1;
         String line = bReader.readLine();
         lineList.add(line);
-        if (line.contains(wordToSearch)) hits.add(i);
+        if (line.toLowerCase().contains(wordToSearch.toLowerCase())) hits.add(i);
+        bReader.close();
       }
     } catch (IOException e) {
       System.out.println(e.getMessage() + "\nBad read, exiting");
