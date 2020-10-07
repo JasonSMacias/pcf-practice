@@ -75,8 +75,6 @@ public class GetBible {
         stopwordsSet.add(line);
       }
       bReader.close();
-    }
-      while ()
     }catch(IOException e) {
       e.printStackTrace();
       System.out.println("Problem reading stopwords text file");
