@@ -46,7 +46,7 @@ public class GetBible {
     }	  
   }
 
-  private static List<String> verses getVerses(int bibleLength, String wordToSearch){
+  private static List<String> getVerses(int bibleLength, String wordToSearch){
     ArrayList<String> lineList = new ArrayList<>();
     ArrayList<Integer> hits = new ArrayList<>();
     int firstVerse = -1;
