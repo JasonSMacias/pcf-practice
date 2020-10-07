@@ -60,7 +60,7 @@ public class GetBible {
     }	  
   }
   private static void downloadStopwords() {
-    String STOPWORD_URL = "http://www.gutenberg.org/cache/epub/10/pg10.txt";
+    String STOPWORD_URL = "http://xpo6.com/wp-content/uploads/2015/01/stop-word-list.txt";
     try(InputStream in = new URL(STOPWORD_URL).openStream()) {
       Files.copy(in, Paths.get("./stopwords.txt"), StandardCopyOption.REPLACE_EXISTING);
       stopwordsFile = new File("./stopwords.txt");
