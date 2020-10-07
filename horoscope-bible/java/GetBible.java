@@ -37,7 +37,7 @@ public class GetBible {
           wordToSearch = wordToSearch.substring(1);
         }
         if (wordToSearch.charAt(wordToSearch.length() - 1) == ')') {
-          wortToSearch = wordToSearch.substring(0, wordToSearch.length() - 1)
+          wordToSearch = wordToSearch.substring(0, wordToSearch.length() - 1);
         }
         if(stopwordsSet.contains(wordToSearch)) {
           System.out.println("Stopword detected, continuing . . .\n");
