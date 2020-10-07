@@ -24,7 +24,12 @@ java --version
 
 cd horoscope-repo/horoscope-bible/java
 javac GetBible.java
-if [[ ! -f bible.txt]]; then
-    java GetBible
-fi
+java GetBible || echo "Bible not written"; exit 1
 head bible.txt
+BIB_LINE_COUNT=$( wc -l bible.txt)
+
+printf "---------\nBible Verses with words from daily Horoscope description"
+for word in ${HOROSCOPE_WORDS_ARRAY[@]}
+do
+  java GetBible --get-verses $BIB_LINE_COUNT word
+done
