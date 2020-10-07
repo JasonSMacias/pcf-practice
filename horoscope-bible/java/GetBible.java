@@ -28,7 +28,7 @@ public class GetBible {
           System.exit(1);
         }
         // args[2] is extra argument 
-        wordToSearch = args[3].substring(1, args[3].length - 1);
+        wordToSearch = args[3].substring(1, args[3].length() - 1);
         getVerses(bibleLength, wordToSearch);
       }
       else {
