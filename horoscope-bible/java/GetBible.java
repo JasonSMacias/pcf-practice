@@ -5,7 +5,7 @@ import java.util.*;
 
 public class GetBible {
 
-  File bible;
+  static File bible;
 
   public static void main(String[] args){
       if (args.length == 0){
@@ -57,11 +57,10 @@ public class GetBible {
         int lineNo = i + 1;
         String line = bReader.readLine();
         lineList.add(line);
-        if (line.contains(word)) hits.add(i);
+        if (line.contains(wordToSearch)) hits.add(i);
       }
     } catch (IOException e) {
-      e.printMessage();
-      System.out.println("Bad read, exiting");
+      System.out.println(e.getMessage() + "\nBad read, exiting");
       System.exit(1);
     }
     printRelevantVerses(lineList, hits);
