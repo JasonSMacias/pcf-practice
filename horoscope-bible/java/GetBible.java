@@ -29,16 +29,11 @@ public class GetBible {
           System.out.println("first arg after flag must be length of text");
           System.exit(1);
         }
-        try {}catch(IOException e) {
-          System.out.println(e.getMessage());
-          System.out.println("Problem reading stopwords");
-          System.exit(1);
-        }
         downloadStopwords();
         setStopwords();
         // args[2] is extra argument 
         wordToSearch = args[3].substring(1, args[3].length() - 1);
-        if(stopwords.contains(wordToSearch)) {
+        if(stopwordsSet.contains(wordToSearch)) {
           System.out.println("Stopword detected, continuing . . .\n");
           System.exit(0);
         }
@@ -71,7 +66,7 @@ public class GetBible {
   private static void setStopwords() {
     try {
       BufferedReader bReader = new BufferedReader(new FileReader(stopwordsFile));
-      for (String line = br.readLine(); line != null; line = br.readLine()) {
+      for (String line = bReader.readLine(); line != null; line = bReader.readLine()) {
         stopwordsSet.add(line);
       }
       bReader.close();
