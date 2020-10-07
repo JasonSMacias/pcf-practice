@@ -5,6 +5,9 @@ if [[ ! -d horoscope-json ]]; then
     mkdir horoscope-json
 fi
 
+echo "environment variables:"
+env
+
 curl -X POST \
 "https://aztro.sameerkumar.website/?sign=$1&day=today"  > horoscope-json/result$(date +%d-%m-%y).json
 ls -l

@@ -14,3 +14,5 @@ outputs:
 run:
   path: horoscope-repo/horoscope-bible/horoscope.sh
   args: [leo]
+params:
+  SIGN_NAME: ((sign-name))
