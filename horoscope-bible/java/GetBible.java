@@ -4,12 +4,15 @@ import java.net.URL;
 import java.util.*;
 
 public class GetBible {
+
+  File bible;
+
   public static void main(String[] args){
       if (args.length == 0){
         writeBible();
         System.exit(0);
       };
-      File bible = new File("./bible.txt");
+      bible = new File("./bible.txt");
       Integer bibleLength = null;
       String wordToSearch;
       if (args[0].equals("--get-verses")) {
@@ -26,8 +29,7 @@ public class GetBible {
         }
         // args[2] is extra argument 
         wordToSearch = args[3];
-        List<String> verses = getVerses(bibleLength, wordToSearch);
-        System.out.println(verses);
+        getVerses(bibleLength, wordToSearch);
       }
       else {
         System.out.println("Try running program without args to download the text, or running it with argument --get-verses followed by length of text and word");
@@ -44,9 +46,29 @@ public class GetBible {
     }	  
   }
 
-  private static List<String> getVerses(int bibleLength, String wordToSearch){
-    System.out.println("Find " + wordToSearch + " in file of " + bibleLength + " words.");
+  private static List<String> verses getVerses(int bibleLength, String wordToSearch){
+    ArrayList<String> lineList = new ArrayList<>();
+    ArrayList<Integer> hits = new ArrayList<>();
+    int firstVerse = -1;
+    try{
+      BufferedReader bReader = new BufferedReader(new FileReader(bible));
+      System.out.println("Find " + wordToSearch + " in file of " + bibleLength + " words.");
+      for (int i = 0; i < bibleLength; i++) {
+        int lineNo = i + 1;
+        String line = bReader.readLine();
+        lineList.add(line);
+        if (line.contains(word)) hits.add(i);
+      }
+    } catch (IOException e) {
+      e.printMessage();
+      System.out.println("Bad read, exiting");
+      System.exit(1);
+    }
+    printRelevantVerses(lineList, hits);
+  }
 
-    return new ArrayList<String>();
+  private static void printRelevantVerses(List<String> lines, List<Integer> hitIndexes){
+    // Just printing the lines themselves for now, will later get verses w/ regex
+    for (int i : hitIndexes) System.out.println(lines.get(i));
   }
 }
