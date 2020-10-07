@@ -32,7 +32,7 @@ public class GetBible {
         downloadStopwords();
         setStopwords();
         // args[2] is extra argument 
-        wordToSearch = args[3].substring(1, args[3].length() - 1);
+        wordToSearch = args[3].substring(1, args[3].length());
         if(stopwordsSet.contains(wordToSearch)) {
           System.out.println("Stopword detected, continuing . . .\n");
           System.exit(0);
@@ -69,7 +69,6 @@ public class GetBible {
       for (String line = bReader.readLine(); line != null; line = bReader.readLine()) {
         stopwordsSet.add(line);
       }
-      bReader.close();
     }catch(IOException e) {
       e.printStackTrace();
       System.out.println("Problem reading stopwords text file");
@@ -89,7 +88,6 @@ public class GetBible {
         String line = bReader.readLine();
         lineList.add(line);
         if (line.toLowerCase().contains(wordToSearch.toLowerCase())) hits.add(i);
-        bReader.close();
       }
     } catch (IOException e) {
       System.out.println(e.getMessage() + "\nBad read, exiting");
