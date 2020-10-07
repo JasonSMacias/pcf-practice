@@ -52,7 +52,7 @@ public class GetBible {
     int firstVerse = -1;
     try{
       BufferedReader bReader = new BufferedReader(new FileReader(bible));
-      System.out.println("Find " + wordToSearch + " in file of " + bibleLength + " words.");
+      System.out.println("  --  Find " + wordToSearch + " in file of " + bibleLength + " words.");
       for (int i = 0; i < bibleLength; i++) {
         int lineNo = i + 1;
         String line = bReader.readLine();
@@ -64,6 +64,7 @@ public class GetBible {
       System.exit(1);
     }
     printRelevantVerses(lineList, hits);
+    System.out.println("\n");
   }
 
   private static void printRelevantVerses(List<String> lines, List<Integer> hitIndexes){
